@@ -3,12 +3,7 @@ const app = express();
 
 // Root route
 app.get('/', (req, res) => {
-  res.send('Welcome to my CSE341class web server!');
-});
-
-// Existing route
-app.get('/name', (req, res) => {
-  res.send('John Doe'); // Replace with the name of someone you know
+  res.send('Emily Hinojos');
 });
 
 const PORT = process.env.PORT || 3000;
