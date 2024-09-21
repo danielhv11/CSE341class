@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 
-// Create a route that returns someone's name
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to my CSE341class web server!');
+});
+
+// Existing route
 app.get('/name', (req, res) => {
-  res.send('Emily Hinojos'); // Replace with the name of someone you know
+  res.send('John Doe'); // Replace with the name of someone you know
 });
 
 const PORT = process.env.PORT || 3000;
