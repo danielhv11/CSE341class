@@ -23,12 +23,4 @@ function getDB() {
     return db;
 }
 
-(async () => {
-    try {
-        await connectDB();
-    } catch (error) {
-        console.error('Error during DB connection:', error);
-    }
-})();
-
 module.exports = { connectDB, getDB };
