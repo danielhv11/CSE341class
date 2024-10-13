@@ -9,24 +9,24 @@ POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-  "firstName": "John",
+  "firstName": "Daniel1",
   "lastName": "Smith",
-  "email": "john.smith@example.com",
+  "email": "daniel.smith@example.com",
   "favoriteColor": "blue",
   "birthday": "1990-05-15"
 }
 
 ### PUT update a contact
-PUT http://localhost:3000/contacts/66f8a3ae635863d10b941a68
+PUT http://localhost:3000/contacts/6702026c830e4885300d88a2
 Content-Type: application/json
 
 {
   "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane.doe@example.com",
+  "lastName": "Stump",
+  "email": "jane.stump@example.com",
   "favoriteColor": "green",
   "birthday": "1992-11-22"
 }
 
 ### DELETE a contact
-DELETE http://localhost:3000/contacts/66f8a3ae635863d10b941a68
+DELETE http://localhost:3000/contacts/6702026c830e4885300d88a2

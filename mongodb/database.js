@@ -1,14 +1,15 @@
 const { MongoClient } = require('mongodb');
-require('dotenv').config(); 
+require('dotenv').config();
 
-const uri = process.env.MONGO_URI; 
+const uri = process.env.MONGO_URI;
 let db;
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true }); // Added options here
 
 async function connectDB() {
     try {
-        const client = new MongoClient(uri);
         await client.connect();
-        db = client.db('CSE341');
+        db = client.db('CSE341'); // Make sure 'CSE341' is the correct database name
         console.log('Connected to MongoDB');
     } catch (err) {
         console.error('Failed to connect to MongoDB:', err);
@@ -23,4 +24,5 @@ function getDB() {
     return db;
 }
 
+// Export the connectDB function to call it when starting your server
 module.exports = { connectDB, getDB };
