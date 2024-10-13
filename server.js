@@ -7,13 +7,10 @@ const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
-// Middleware to parse JSON request bodies
 app.use(express.json());
 
-// Enable CORS for all routes
 app.use(cors());
 
-// Swagger setup
 const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.0',
@@ -24,7 +21,7 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'https://cse341class-1.onrender.com', // Replace with your Render URL after deployment
+                url: 'https://cse341class-1.onrender.com', 
             },
         ],
     },
@@ -34,21 +31,17 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Basic route
 app.get('/', (req, res) => {
     res.send('Daniel Hinojos');
 });
 
-// Use contacts routes
 app.use('/contacts', contactsRoutes);
 
-// Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong! Please try again later.');
 });
 
-// Connect to the database and start the server
 connectDB()
     .then(() => {
         const PORT = process.env.PORT || 3000;
